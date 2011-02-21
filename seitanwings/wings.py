@@ -12,8 +12,6 @@ from BeautifulSoup import BeautifulSoup
 # given a url
 # parse, add each line to mongo
 
-URL_RE = r'(https?://[-A-Za-z0-9+&@#/%?=~_()|!:,.;]*[-A-Za-z0-9+&@#/%=~_|])'
-
 seen_urls = {}
 url_queue = []
 start_url = 'http://www.google.com/Top/Arts/'
