@@ -11,6 +11,10 @@ from BeautifulSoup import BeautifulSoup
 # given a url
 # parse, add each line to mongo
 
+connection = pymongo.Connection()
+db = connection.wings_test
+pages = db.pages
+
 seen_urls = {}
 url_queue = []
 start_url = 'http://www.google.com/Top/Arts/'
@@ -37,7 +41,12 @@ while len(url_queue) > 0 and iterations > 0:
     root = urlparse.urlparse(url).netloc
     soup = BeautifulSoup(data)
     # parse content
-    # add docs to mongo
+    soup = BeautifulSoup(data)
+    page = {
+        'url':url,
+        # XXX
+    }
+    pages.insert(page)
     seen_urls[url] = True
     for link in soup.findAll('a'):
         if link.has_key('href'):
