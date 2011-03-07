@@ -1,6 +1,7 @@
 # url, line, line number, syllables, ...
 # in memory hash of seen urls
 # doc per line
+# query strings?
 import urllib2
 import urlparse
 
