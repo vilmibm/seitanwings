@@ -26,6 +26,10 @@ iterations = 10
 opener = urllib2.build_opener()
 opener.addheaders = [('User-Agent', 'Mozilla/5.0')]
 
+# sync seen urls
+for page in pages.find():
+    seen_urls[page['url']] = True
+
 while len(url_queue) > 0 and iterations > 0:
     url = url_queue.pop(0)
 
